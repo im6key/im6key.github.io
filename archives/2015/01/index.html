@@ -83,12 +83,13 @@
     
       <h1 id="高清一像素的线">高清一像素的线</h1>
 <blockquote>
-<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出现的2px的。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
+<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出来的是2px。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
 </blockquote>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*上，下边框*/</span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="comment">/*左，右边框*/</span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,left bottom,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) left bottom repeat-x</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span></span>}</div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,right top,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) right top repeat-y</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span></span>}</div></pre></td></tr></table></figure>
 
 <h2 id="使用">使用</h2>
-<p>包装上面文件为retina1px.css，需要使用的地方设置为position:relative<br>@import url(‘retina1px.css’);</p>
+<p>包装上面文件为retina1px.css，需要使用的地方设置为*position:relative</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="at_rule">@<span class="keyword">import</span> <span class="function">url</span>(<span class="string">'retina1px.css'</span>)</span>;</div></pre></td></tr></table></figure>
 
     
   </div>
@@ -107,357 +108,23 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2015/01/08/retina1px/">
-  <time datetime="2015-01-08T09:28:20.000Z">
+      <a href="/2015/01/08/README/">
+  <time datetime="2015-01-08T06:23:13.000Z">
     Jan 8 2015
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2015/01/08/retina1px/"></a></h1>
+    <h1 class="title"><a href="/2015/01/08/README/"></a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <h1 id="高清一像素的线">高清一像素的线</h1>
-<blockquote>
-<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出现的2px的。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*上，下边框*/</span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="comment">/*左，右边框*/</span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,left bottom,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) left bottom repeat-x</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span></span>}</div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,right top,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) right top repeat-y</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span></span>}</div></pre></td></tr></table></figure>
-
-<h2 id="使用">使用</h2>
-<p>包装上面文件为retina1px.css，需要使用的地方设置为position:relative<br>@import url(‘retina1px.css’);</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2015/01/08/retina1px/">
-  <time datetime="2015-01-08T09:28:20.000Z">
-    Jan 8 2015
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2015/01/08/retina1px/"></a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="高清一像素的线">高清一像素的线</h1>
-<blockquote>
-<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出现的2px的。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*上，下边框*/</span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="comment">/*左，右边框*/</span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,left bottom,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) left bottom repeat-x</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span></span>}</div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,right top,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) right top repeat-y</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span></span>}</div></pre></td></tr></table></figure>
-
-<h2 id="使用">使用</h2>
-<p>包装上面文件为retina1px.css，需要使用的地方设置为position:relative<br>@import url(‘retina1px.css’);</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2015/01/08/retina1px/">
-  <time datetime="2015-01-08T09:28:20.000Z">
-    Jan 8 2015
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2015/01/08/retina1px/"></a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="高清一像素的线">高清一像素的线</h1>
-<blockquote>
-<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出现的2px的。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*上，下边框*/</span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="comment">/*左，右边框*/</span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,left bottom,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) left bottom repeat-x</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span></span>}</div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,right top,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) right top repeat-y</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span></span>}</div></pre></td></tr></table></figure>
-
-<h2 id="使用">使用</h2>
-<p>包装上面文件为retina1px.css，需要使用的地方设置为position:relative<br>@import url(‘retina1px.css’);</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2015/01/08/retina1px/">
-  <time datetime="2015-01-08T09:28:20.000Z">
-    Jan 8 2015
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2015/01/08/retina1px/"></a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="高清一像素的线">高清一像素的线</h1>
-<blockquote>
-<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出现的2px的。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*上，下边框*/</span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="comment">/*左，右边框*/</span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,left bottom,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) left bottom repeat-x</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span></span>}</div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,right top,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) right top repeat-y</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span></span>}</div></pre></td></tr></table></figure>
-
-<h2 id="使用">使用</h2>
-<p>包装上面文件为retina1px.css，需要使用的地方设置为position:relative<br>@import url(‘retina1px.css’);</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2015/01/08/retina1px/">
-  <time datetime="2015-01-08T09:28:20.000Z">
-    Jan 8 2015
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2015/01/08/retina1px/"></a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="高清一像素的线">高清一像素的线</h1>
-<blockquote>
-<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出现的2px的。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*上，下边框*/</span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="comment">/*左，右边框*/</span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,left bottom,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) left bottom repeat-x</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span></span>}</div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,right top,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) right top repeat-y</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span></span>}</div></pre></td></tr></table></figure>
-
-<h2 id="使用">使用</h2>
-<p>包装上面文件为retina1px.css，需要使用的地方设置为position:relative<br>@import url(‘retina1px.css’);</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2015/01/08/retina1px/">
-  <time datetime="2015-01-08T09:28:20.000Z">
-    Jan 8 2015
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2015/01/08/retina1px/"></a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="高清一像素的线">高清一像素的线</h1>
-<blockquote>
-<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出现的2px的。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*上，下边框*/</span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="comment">/*左，右边框*/</span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,left bottom,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) left bottom repeat-x</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span></span>}</div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,right top,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) right top repeat-y</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span></span>}</div></pre></td></tr></table></figure>
-
-<h2 id="使用">使用</h2>
-<p>包装上面文件为retina1px.css，需要使用的地方设置为position:relative<br>@import url(‘retina1px.css’);</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2015/01/08/retina1px/">
-  <time datetime="2015-01-08T09:28:20.000Z">
-    Jan 8 2015
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2015/01/08/retina1px/"></a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="高清一像素的线">高清一像素的线</h1>
-<blockquote>
-<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出现的2px的。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*上，下边框*/</span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="comment">/*左，右边框*/</span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,left bottom,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) left bottom repeat-x</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span></span>}</div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,right top,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) right top repeat-y</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span></span>}</div></pre></td></tr></table></figure>
-
-<h2 id="使用">使用</h2>
-<p>包装上面文件为retina1px.css，需要使用的地方设置为position:relative<br>@import url(‘retina1px.css’);</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2015/01/08/retina1px/">
-  <time datetime="2015-01-08T09:28:20.000Z">
-    Jan 8 2015
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2015/01/08/retina1px/"></a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="高清一像素的线">高清一像素的线</h1>
-<blockquote>
-<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出现的2px的。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*上，下边框*/</span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="comment">/*左，右边框*/</span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,left bottom,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) left bottom repeat-x</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span></span>}</div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,right top,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) right top repeat-y</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span></span>}</div></pre></td></tr></table></figure>
-
-<h2 id="使用">使用</h2>
-<p>包装上面文件为retina1px.css，需要使用的地方设置为position:relative<br>@import url(‘retina1px.css’);</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2015/01/08/retina1px/">
-  <time datetime="2015-01-08T09:28:20.000Z">
-    Jan 8 2015
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2015/01/08/retina1px/"></a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="高清一像素的线">高清一像素的线</h1>
-<blockquote>
-<p>现在蛮多设计稿里面出现retina的1px横、竖线，这样的线用border:solid 1px #xxx这样的写法肯定是不行的，出现的2px的。而且，这些线不止于一个页面里面有，所以整理成组件，于是就有了现在的这篇文章。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*上，下边框*/</span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="comment">/*左，右边框*/</span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">""</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span><span class="rules">{<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule">}</span></span></div><div class="line"><span class="class">.tBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.bBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,left bottom,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) left bottom repeat-x</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">100%</span> <span class="number">1px</span></span></span></span>}</div><div class="line"><span class="class">.lBor</span><span class="pseudo">:before</span>,</div><div class="line"><span class="class">.rBor</span><span class="pseudo">:after</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">-webkit-gradient</span>(linear,left top,right top,<span class="function">color-stop</span>(.<span class="number">5</span>,transparent),<span class="function">color-stop</span>(.<span class="number">5</span>,<span class="hexcolor">#cfcfcf</span>),<span class="function">to</span>(<span class="hexcolor">#cfcfcf</span>)) right top repeat-y</span></span>;<span class="rule"><span class="attribute">-webkit-background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">background-size</span>:<span class="value"><span class="number">1px</span> <span class="number">100%</span></span></span></span>}</div></pre></td></tr></table></figure>
-
-<h2 id="使用">使用</h2>
-<p>包装上面文件为retina1px.css，需要使用的地方设置为position:relative<br>@import url(‘retina1px.css’);</p>
+      <h1 id="Who_Am_i?">Who Am i?</h1>
+<p>2015.1.8 博客再一次崛起！</p>
 
     
   </div>
@@ -475,8 +142,6 @@
 
   <nav id="pagination">
   
-  
-    <a href="/archives/2015/01/page/2/" class="next">Next</a>
   
   <div class="clearfix"></div>
 </nav>
